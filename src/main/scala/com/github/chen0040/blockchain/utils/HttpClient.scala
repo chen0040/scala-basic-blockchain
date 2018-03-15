@@ -50,7 +50,7 @@ object HttpClient {
   def jsonPost(url: String, parameters: util.Map[String, String]): String = {
     val httpClient = buildClient
     var json = ""
-    val body = JSON.toJSONString(parameters)
+    val body = JSON.toJSONString(parameters, SerializerFeature.BrowserCompatible)
     try {
       val request = new HttpPost(url)
       val params = new StringEntity(body)
